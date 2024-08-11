@@ -47,3 +47,11 @@ kubectl get svc
 ![get-svc](/images/get-svc.png)
 
 This command retrieves all services deployed in the default namespace. It shows you can communicate with the Kubernetes API, and that you have the required permissions to execute commands.
+
+# Set up an Amazon ECS cluster
+
+We will set up an Amazon ECS cluster as well to run some of our sample applications. Run the following command:
+
+```sh
+aws ecs create-cluster --cluster-name container-observability
+```
