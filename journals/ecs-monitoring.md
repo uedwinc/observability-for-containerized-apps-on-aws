@@ -67,3 +67,19 @@ You can then check the Amazon Cloudwatch Container Insights details for the Amaz
 
 ![adot-task-insight](/images/adot-task-insight.png)
 
+## Collect logs and send them to CloudWatch Logs using FireLens
+
+You can use **FireLens** to route logs to CloudWatch Logs for storage. 
+
+1. Write a script to deploy an Amazon ECS task for this. The script will deploy an Amazon ECS service that uses FireLens to forward the applications log to Amazon CloudWatch Logs.
+
+2. Execute the script
+
+After the execution of the script, you will find a new task accessing the Amazon ECS console and the `container-observability-ecs-cluster` cluster
+
+![firelens-service](/images/firelens-service.png)
+
+You can visit the Amazon CloudWatch logs console. There’s a new log group created by the FireLens agent, named `firelens-blog`. You can click to see the log events.
+
+![firelens-blog](/images/firelens-blog.png)
+
