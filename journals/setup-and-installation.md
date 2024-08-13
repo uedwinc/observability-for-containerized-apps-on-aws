@@ -53,5 +53,5 @@ This command retrieves all services deployed in the default namespace. It shows 
 We will set up an Amazon ECS cluster as well to run some of our sample applications. Run the following command:
 
 ```sh
-aws ecs create-cluster --cluster-name container-observability
+aws ecs create-cluster --cluster-name container-observability-ecs-cluster
 ```
