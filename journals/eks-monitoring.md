@@ -42,7 +42,7 @@ For this, we will use the `AWS Distro for OpenTelemetry (ADOT)`.
 
 ADOT is an AWS-supported OpenTelemetry distribution. OpenTelemetry (see https://opentelemetry.io/) is a collection of tools, SDKs, and APIs. It can be used to generate, collect, instrument, and export telemetry data (for example, logs, traces, and metrics) in order to analyze the behavior and performance of your software.
 
-It is not a fork but a packaging of libraries and plugins to make it easy to integrate with the AWS ecosystem. Because of the way ADOT collects metrics (using the Kubernetes API), ADOT is well suited to collect metrics when using Fargate.
+It is a packaging of libraries and plugins to make it easy to integrate with the AWS ecosystem. Because of the way ADOT collects metrics (using the Kubernetes API), ADOT is well suited to collect metrics when using Fargate.
 
 1. Write [a script](../enable_container_insights_eks_fargate.sh) to install the necessary permissions, and as we have done in the EKS EC2 case, it will install the ADOT agent, but now as Kubernetes StatefulSets
 
