@@ -13,3 +13,5 @@ The `/journals` directory contains
 - [ ] [Setup and Installation](journals/setup-and-installation.md)
 
 - [ ] [Implement observability for a distributed application running on Amazon EKS](journals/eks-monitoring.md) to use native CloudWatch features and Container Insights.
+
+- [ ] [mplementing observability for a distributed application running on Amazon ECS](journals/ecs-monitoring.md) to collect cluster, service-level and instance-level metrics and logs
