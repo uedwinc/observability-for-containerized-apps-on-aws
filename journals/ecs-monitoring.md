@@ -13,7 +13,7 @@ You can activate Container Insights on Amazon ECS for the cluster- and service-l
 
 When you activate Container Insights on an account level, every new Amazon ECS cluster created after that will have Container Insights data collection activated by default.
 
-### Container Insights on the account level
+### Activate Container Insights on the account level
 
 You can activate Container Insights on the account level using the AWS Management Console UI or the CLI.
 
@@ -27,7 +27,7 @@ You can activate Container Insights on the account level using the AWS Managemen
 aws ecs put-account-setting --name "containerInsights" --value "enabled"
 ```
 
-### Container Insights per cluster
+### Activate Container Insights per cluster
 
 Now, you can activate Container Insights per cluster if you want to save some costs on non-critical/low-margin environments or non-production environments. For new ECS clusters, you can also do it using the AWS Console Management UI or the CLI.
 
@@ -46,3 +46,24 @@ aws ecs create-cluster --cluster-name myCICluster --settings "name=containerInsi
 ```sh
 aws ecs update-cluster-settings --cluster ${clustername} --settings name=containerInsights,value=enabled --region ${AWS_REGION}
 ```
+
+## Container Insights on Amazon ECS for instance-level metrics using ADOT
+
+As an alternative to the CloudWatch agent, you can use `ADOT (AWS Distro for OpenTelemetry)` to collect instance- and application- level metrics.
+
+1. Write [a script](../enable_container_insights_ecs_adot.sh) that will deploy an Amazon ECS service comprising the AWS ADOT collector and two sample applications. It will set up all required permissions.
+
+2. Execute the script:
+
+```sh
+bash enable_container_insights_ecs_adot.sh
+```
+
+Once done, you can check to see the deployed workload accessing the Amazon ECS console
+
+![cluster-adot](/images/cluster-adot.png)
+
+You can then check the Amazon Cloudwatch Container Insights details for the Amazon ECS `container-observability-ecs-cluster` task
+
+![adot-task-insight](/images/adot-task-insight.png)
+
