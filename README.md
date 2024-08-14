@@ -14,4 +14,6 @@ The `/journals` directory contains
 
 - [ ] [Implement observability for a distributed application running on Amazon EKS](journals/eks-monitoring.md) to use native CloudWatch features and Container Insights.
 
-- [ ] [mplementing observability for a distributed application running on Amazon ECS](journals/ecs-monitoring.md) to collect cluster, service-level and instance-level metrics and logs
+- [ ] [Implementing observability for a distributed application running on Amazon ECS](journals/ecs-monitoring.md) to collect cluster, service-level and instance-level metrics and logs
+
+- [ ] [End-to-end visibility of containerized applications using AWS App Mesh](journals/monitoring-with-appmesh.md) for log aggregation and end-to-end tracing
