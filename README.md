@@ -17,3 +17,5 @@ The `/journals` directory contains
 - [ ] [Implementing observability for a distributed application running on Amazon ECS](journals/ecs-monitoring.md) to collect cluster, service-level and instance-level metrics and logs
 
 - [ ] [End-to-end visibility of containerized applications using AWS App Mesh](journals/monitoring-with-appmesh.md) for log aggregation and end-to-end tracing
+
+- [ ] [Understanding and troubleshooting performance bottlenecks in containers](journals/troubleshooting.md)
