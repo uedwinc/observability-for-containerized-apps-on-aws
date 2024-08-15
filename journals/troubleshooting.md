@@ -32,3 +32,22 @@ Execute the following command to enable Container Insights for our cluster:
 aws ecs update-cluster-settings --cluster $(aws ecs list-clusters --query "clusterArns[*]" --output text | sed 's/\s\+/\n/g' | grep container-observability-app-) --settings name=containerInsights,value=enabled --region ${AWS_REGION}
 ```
 
+## Explore Container Insights
+
+After we have deployed the sample application and set the publication of observability signals using Container Insights, we are ready to monitor the application. Let’s check what we have available to do so.
+
+1. Check that the logs are streaming into CloudWatch Logs. Navigate to CloudWatch Logs and search for a log group identified by `/aws/ecs/containerinsights/<cluster-name>/performance`.
+
+![cluster-log-group](/images/cluster-log-group.png)
+
+2. Now, navigate to the Amazon CloudWatch `Container Insights` console (https://console.aws.amazon.com/cloudwatch/home#container-insights:infrastructure). From the first drop-down box, select `Performance monitoring`, and in the two new drop-down boxes that will appear below, select `ECS Clusters` and `container-observability-app-***`, that is name of your cluster (from the second drop-down box):
+
+![clusters-container-insights](/images/clusters-container-insights.png)
+
+You should see a dashboard automatically created with the key metrics of your cluster, as in the preceding figure.
+
+If you return to the resource list, from the first drop-down box, you can select the `container-observability-app-***` cluster and click on the `View logs` button. You will see the CloudWatch Logs Insights, where you can select a log group such as `/aws/ecs/containerinsights/container-observability-app-***/performance`, and run queries against more detailed data points. Check the following screenshot:
+
+![performance logs-insights-1](/images/performance%20logs-insights-1.png)
+![performance logs-insights-2](/images/performance%20logs-insights-2.png)
+
