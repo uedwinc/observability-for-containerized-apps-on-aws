@@ -22,3 +22,13 @@ This script will take many minutes to execute, as it goes through the deployment
 
 Now we have the infrastructure and sample application deployed. Next, let’s set up our container service to publish observability signals.
 
+## Set up Container Insights
+
+With the sample application deployed, let’s start to publish observability signals to Amazon CloudWatch Container Insights.
+
+Execute the following command to enable Container Insights for our cluster:
+
+```sh
+aws ecs update-cluster-settings --cluster $(aws ecs list-clusters --query "clusterArns[*]" --output text | sed 's/\s\+/\n/g' | grep container-observability-app-) --settings name=containerInsights,value=enabled --region ${AWS_REGION}
+```
+
