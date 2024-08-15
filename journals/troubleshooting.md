@@ -51,3 +51,23 @@ If you return to the resource list, from the first drop-down box, you can select
 ![performance logs-insights-1](/images/performance%20logs-insights-1.png)
 ![performance logs-insights-2](/images/performance%20logs-insights-2.png)
 
+## Setup and Perform a load test
+
+We now have monitoring enabled for our cluster. Let us push the limits of our system to see how the metrics may change. To perform our load test, we will use the tool `Siege` (https://github.com/JoeDog/siege). To install Siege on Cloud9, execute the following command:
+
+```sh
+sudo yum -y install siege
+```
+
+1. Write [a script](../run_load_test.sh) to run the siege load test
+
+2. Execute the script
+
+```sh
+bash run_load_test.sh
+```
+
+This command will execute the Siege tool and it will drive 200 concurrent connections to the ECS application.
+
+You can leave the tool running for 15-20 seconds and then you can kill the process with `Ctrl + C` if it doesn't terminate by itself.
+
