@@ -71,3 +71,29 @@ This command will execute the Siege tool and it will drive 200 concurrent connec
 
 You can leave the tool running for 15-20 seconds and then you can kill the process with `Ctrl + C` if it doesn't terminate by itself.
 
+## Load testing metrics
+
+Go back to the Container Insights metrics and select `Performance monitoring` | `ECS Service` | `container-observability-app-***` and the time range of `5 min`:
+
+![insights-5mins](/images/insights-5mins.png)
+
+Notice the CPU utilization increasing as Siege increases the load on the application.
+
+## Accessing CloudWatch Logs Insights
+
+Let us explore the CPU utilization increase from another angle, using CloudWatch Logs Insights:
+
+1. Navigate to CloudWatch Logs Insights and select the `/aws/ecs/containerinsights/<cluster-name>/performance` log group
+
+2. Copy and paste the following filter command:
+
+```
+stats avg(MemoryUtilized) as Avg_Memory, avg(CpuUtilized) as Avg_CPU by bin(5m) | filter Type="Task"
+```
+
+3. Select the `Visualization` tab, then the `Bar` chart. You will see a screen like the following:
+
+![log-insights-metrics-stats-1](/images/log-insights-metrics-stats-1.png)
+![log-insights-metrics-stats-2](/images/log-insights-metrics-stats-2.png)
+
+With CloudWatch Container Insights, we removed the need to manage and update your monitoring infrastructure and used native AWS solutions for which you don’t have to manage the platform.
